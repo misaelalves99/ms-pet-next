@@ -1,0 +1,101 @@
+.myPetsContainer {
+    max-width: 800px;
+    height: 90vh;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .petTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .petTable th, 
+  .petTable td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .petTable th {
+    background-color: #f2f2f2;
+    color: #555;
+  }
+  
+  .petRow:hover {
+    background-color: #f0f8ff;
+  }
+  
+  .petDetails {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .petImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .petInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .petName {
+    font-size: 1.2rem;
+    color: #222;
+    margin: 0;
+  }
+  
+  .actionButtons {
+    text-align: right;
+  }
+  
+  .editButton, 
+  .deleteButton {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .editButton {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .editButton:hover {
+    background-color: #45a049;
+  }
+  
+  .deleteButton {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .deleteButton:hover {
+    background-color: #e53935;
+  }
+  
+  .empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 20px;
+  }
+  

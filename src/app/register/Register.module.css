@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+  
+.card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+  
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: blue;
+    text-align: center;
+}
+  
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+  
+.form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.fieldset {
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+}
+  
+.legend {
+    font-size: 1rem;
+    font-weight: bold;
+}
+  
+.inputGroup {
+    margin-bottom: 1rem;
+}
+  
+.inputGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+  
+.inputGroup input,
+.inputGroup select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+  
+.genderGroup label {
+    margin-right: 1rem;
+}
+  
+.button {
+    background-color: orange;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+  
+.button:hover {
+    background-color: #e69500;
+}
+  
+.footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #333;
+}
+  
+.link {
+    color: blue;
+    text-decoration: none;
+}
+  
+.link:hover {
+    text-decoration: underline;
+}
+  
