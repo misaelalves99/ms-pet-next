@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
-import Logo from '../public/assets/Logo.png';
+import Logo from '../../../public/assets/Logo.png';
 
 function Navbar() {
   const { isAuthenticated, logout } = useAuth();
