@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import styles from "@/styles/Register.module.css";
+import styles from "../register/Register.module.css";
 
 const Register = () => {
   const router = useRouter();

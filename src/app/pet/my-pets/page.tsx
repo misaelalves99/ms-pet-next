@@ -1,9 +1,9 @@
 // app/pet/my-pets/page.tsx
 "use client";
 
-import { useAuth } from "@/app/context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/navigation";
-import styles from "@/app/styles/MyPets.module.css";
+import styles from "../my-pets/MyPets.module.css";
 
 const MyPets = () => {
   const { myPets, deletePet } = useAuth();

@@ -3,7 +3,7 @@
 "use client";
 
 import { createContext, useState, useContext, ReactNode } from "react";
-import { Pet } from "@/app/types/pet";
+import { Pet } from "../types/pet";
 
 // Definição do tipo do contexto
 interface AuthContextType {

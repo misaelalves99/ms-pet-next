@@ -4,7 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./PetList.module.css";
-import { pets } from "@/app/api/pets";
+import { pets } from "../api/pets";
 import type { Pet } from "../types/pet";
 
 interface PetListProps {

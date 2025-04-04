@@ -1,8 +1,8 @@
 // app/login/page.tsx
 "use client";
 
-import { useAuth } from "@/app/context/AuthContext";
-import styles from "@/app/styles/Login.module.css";
+import { useAuth } from "../context/AuthContext";
+import styles from "../login/Login.module.css";
 import { FormEvent } from "react";
 
 const Login = () => {

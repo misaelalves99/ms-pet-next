@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Pet } from "../../types/pet";
-import styles from "./PetDetails.module.css";
+import styles from "../pet-details/pet-details.module.css";
 
 export default function PetDetails() {
   const { id } = useParams();

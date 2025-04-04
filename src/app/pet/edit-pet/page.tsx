@@ -3,9 +3,9 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useAuth } from "@/app/context/AuthContext";
-import { Pet } from "@/app/types/pet"; // ✅ Importação correta do tipo Pet
-import styles from "@/app/styles/EditPet.module.css";
+import { useAuth } from "../../context/AuthContext";
+import { Pet } from "../../types/pet"; // ✅ Importação correta do tipo Pet
+import styles from "../edit-pet/EditPet.module.css";
 
 const EditPet = () => {
   const searchParams = useSearchParams();
