@@ -33,10 +33,8 @@ const Register = () => {
     event.preventDefault();
     console.log("Dados do usuário:", formData);
 
-    // Simulação de envio de dados para API
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    // Redireciona para a página de login
     router.push("/login");
   };
 

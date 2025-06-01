@@ -1,0 +1,19 @@
+.pageContainer {
+  max-width: 600px;
+  min-height: 100vh;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #f5f7fa;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgb(0 80 250 / 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.loading {
+  font-size: 1.25rem;
+  color: #0050fa;
+  font-weight: 600;
+  text-align: center;
+  padding: 3rem 0;
+}

@@ -1,8 +1,9 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { AuthProvider } from "../app/context/AuthContext";
-import "../app/globals.css"; // Importação dos estilos globais
-import Navbar from "../app/components/Navbar"; // Importando a Navbar
+import "../app/globals.css";
+import Navbar from "../app/components/Navbar";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Adote um Pet",
@@ -14,8 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <body>
         <AuthProvider>
-          <Navbar /> {/* Adicionando a Navbar aqui */}
+          <Navbar />
           {children}
+          <Footer/>
         </AuthProvider>
       </body>
     </html>

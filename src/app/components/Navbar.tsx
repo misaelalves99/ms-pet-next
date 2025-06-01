@@ -1,4 +1,5 @@
 // app/components/Navbar.tsx
+
 'use client';
 
 import Link from 'next/link';
@@ -26,7 +27,7 @@ function Navbar() {
         {isAuthenticated ? (
           <>
             <li>
-              <Link href="/meus-pets" className={styles.navLinkItem}>
+              <Link href="/pet/my-pets" className={styles.navLinkItem}>
                 Meus Pets
               </Link>
             </li>

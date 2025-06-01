@@ -1,62 +1,13 @@
 .petList {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Exibe 4 cards por linha */
-    gap: 20px;
-    margin: 20px auto; /* Centraliza o grid */
-    max-width: 1200px; /* Limita a largura máxima */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
 }
 
 @media (max-width: 768px) {
-    .petList {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.card {
-    background-color: #fff;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    transition: transform 0.2s ease;
-}
-
-.card:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
-}
-
-.image {
-    width: 100%;
-    height: 150px; /* Altura fixa */
-    object-fit: cover; /* Mantém a proporção */
-    border-radius: 8px;
-}
-
-.name {
-    color: blue;
-    font-size: 1.2rem;
-    margin: 10px 0 5px;
-}
-
-.weight {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.button {
-    background-color: #fbb03b;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #e09e2b;
+  .petList {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

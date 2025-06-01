@@ -1,11 +1,9 @@
 // app/context/AuthContext.tsx
 
-"use client";
+'use client';
 
-import { createContext, useState, useContext, ReactNode } from "react";
-import { Pet } from "../types/pet";
-
-// Definição do tipo do contexto
+import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { Pet } from '../types/pet';
 interface AuthContextType {
   isAuthenticated: boolean;
   login: () => void;
@@ -13,38 +11,58 @@ interface AuthContextType {
   myPets: Pet[];
   addPetToMyPets: (pet: Pet) => void;
   deletePet: (id: number) => void;
-  updatePet: (id: number, updatedPet: Pet) => void;  // ✅ Adicionado updatePet
+  updatePet: (id: number, updatedPet: Pet) => void;
 }
 
-// Criando o Contexto com valor inicial
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Definição das props do provider
 interface AuthProviderProps {
   children: ReactNode;
 }
 
-// Provedor de Autenticação
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [myPets, setMyPets] = useState<Pet[]>([]);
+
+  // Carrega os pets do localStorage ao iniciar
+  useEffect(() => {
+    const storedPets = localStorage.getItem('myPets');
+    if (storedPets) {
+      try {
+        const parsed = JSON.parse(storedPets);
+        if (Array.isArray(parsed)) {
+          setMyPets(parsed);
+        }
+      } catch (err) {
+        console.error('Erro ao ler myPets do localStorage:', err);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('myPets', JSON.stringify(myPets));
+  }, [myPets]);
 
   const login = () => setIsAuthenticated(true);
 
   const logout = () => {
     setIsAuthenticated(false);
-    setMyPets([]); // Limpa os pets ao deslogar
+    setMyPets([]);
+    localStorage.removeItem('myPets');
   };
 
   const addPetToMyPets = (pet: Pet) => {
-    setMyPets((prevPets) => [...prevPets, pet]);
+    setMyPets((prevPets) => {
+      const exists = prevPets.some((p) => p.id === pet.id);
+      return exists ? prevPets : [...prevPets, pet];
+    });
   };
 
   const deletePet = (id: number) => {
     setMyPets((prevPets) => prevPets.filter((pet) => pet.id !== id));
   };
 
-  const updatePet = (id: number, updatedPet: Pet) => {  // ✅ Implementação da função
+  const updatePet = (id: number, updatedPet: Pet) => {
     setMyPets((prevPets) =>
       prevPets.map((pet) => (pet.id === id ? updatedPet : pet))
     );
@@ -52,18 +70,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, login, logout, myPets, addPetToMyPets, deletePet, updatePet }} // ✅ Incluído updatePet
+      value={{ isAuthenticated, login, logout, myPets, addPetToMyPets, deletePet, updatePet }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Hook para acessar o contexto
 export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error("useAuth deve ser usado dentro de um AuthProvider");
+    throw new Error('useAuth deve ser usado dentro de um AuthProvider');
   }
   return context;
 };

@@ -69,7 +69,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Pet List Section */}
       <PetList selectedCategory={selectedCategory} searchTerm={searchTerm} />
     </>
   );

@@ -1,11 +1,12 @@
 // app/pet/edit-pet/page.tsx
+
 "use client";
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useAuth } from "../../context/AuthContext";
-import { Pet } from "../../types/pet"; // ✅ Importação correta do tipo Pet
-import styles from "../edit-pet/EditPet.module.css";
+import { useAuth } from "../context/AuthContext";
+import { Pet } from "../types/pet";
+import styles from "./EditPet.module.css";
 
 const EditPet = () => {
   const searchParams = useSearchParams();
@@ -16,10 +17,10 @@ const EditPet = () => {
   const [petDetails, setPetDetails] = useState<Pet>({
     id: 0,
     name: "",
-    category: "Cachorro", // ✅ Definindo um valor válido por padrão
+    category: "Cachorro",
     weight: "",
     image: "",
-    description: "", // ✅ Adicionando a propriedade description
+    description: "",
   });
 
   useEffect(() => {
@@ -29,18 +30,20 @@ const EditPet = () => {
     if (pet) {
       setPetDetails(pet);
     } else {
-      router.push("/meus-pets"); // Redireciona se o pet não for encontrado
+      router.push("/pet/my-pets");
     }
   }, [id, myPets, router]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setPetDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!id) return;
 
     const petId = Number(id);
@@ -55,11 +58,15 @@ const EditPet = () => {
       category: petDetails.category,
       weight: petDetails.weight,
       image: petDetails.image,
-      description: petDetails.description, // ✅ Adicionando a propriedade description
+      description: petDetails.description,
     };
 
     updatePet(petId, updatedPet);
-    router.push("/meus-pets");
+    router.push("/pet/my-pets");
+  };
+
+  const handleCancel = () => {
+    router.push("/pet/my-pets");
   };
 
   return (
@@ -128,7 +135,7 @@ const EditPet = () => {
           </button>
           <button
             type="button"
-            onClick={() => router.push("/meus-pets")}
+            onClick={handleCancel}
             className={styles.cancelButton}
           >
             Cancelar

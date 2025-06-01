@@ -1,4 +1,5 @@
 // app/login/page.tsx
+
 "use client";
 
 import { useAuth } from "../context/AuthContext";
@@ -10,8 +11,7 @@ const Login = () => {
 
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Aqui você pode adicionar lógica de autenticação, como verificar o email e a senha.
-    login(); // Atualiza o estado de autenticação.
+    login();
   };
 
   return (

@@ -1,3 +1,5 @@
+// app/api/pets.ts
+
 import { Pet } from "@/app/types/pet";
 import dog1 from "../../../public/assets/pets/dog/dog-01.jpg";
 import dog2 from "../../../public/assets/pets/dog/dog-02.jpg";
