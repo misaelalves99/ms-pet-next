@@ -3,7 +3,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { pets } from '@/app/api/pets';
@@ -11,22 +11,16 @@ import styles from './PetDetails.module.css';
 import { useAuth } from '@/app/context/AuthContext';
 import { Pet } from '@/app/types/pet';
 
-interface PetDetailsPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function PetDetailsPage({ params }: PetDetailsPageProps) {
-  const { id } = params;
-  const petId = Number(id);
+export default function PetDetailsPage() {
+  const params = useParams();
+  const petId = Number(params?.id);
   const router = useRouter();
   const { addPetToMyPets } = useAuth();
 
   const [foundPet, setFoundPet] = useState<Pet | undefined>(undefined);
 
   useEffect(() => {
-    const pet = pets.find((p) => p.id === petId) as Pet | undefined;
+    const pet = pets.find((p) => p.id === petId);
     setFoundPet(pet);
   }, [petId]);
 
@@ -58,7 +52,7 @@ export default function PetDetailsPage({ params }: PetDetailsPageProps) {
         <p className={styles.weight}><strong>Peso:</strong> {foundPet.weight}</p>
         <p className={styles.description}><strong>Descrição:</strong> {foundPet.description}</p>
 
-        <div>
+        <div className={styles.buttons}>
           <Link href="/" className={styles.backButton}>Voltar</Link>
           <button className={styles.visitationButton} onClick={handleScheduleVisit}>
             Agendar Visita
