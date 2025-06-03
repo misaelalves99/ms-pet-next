@@ -2,29 +2,16 @@
 
 'use client';
 
-import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import { Pet } from '../types/pet';
-interface AuthContextType {
-  isAuthenticated: boolean;
-  login: () => void;
-  logout: () => void;
-  myPets: Pet[];
-  addPetToMyPets: (pet: Pet) => void;
-  deletePet: (id: number) => void;
-  updatePet: (id: number, updatedPet: Pet) => void;
-}
+import { AuthContextType, AuthProviderProps } from '../types/auth';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-interface AuthProviderProps {
-  children: ReactNode;
-}
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [myPets, setMyPets] = useState<Pet[]>([]);
 
-  // Carrega os pets do localStorage ao iniciar
   useEffect(() => {
     const storedPets = localStorage.getItem('myPets');
     if (storedPets) {
